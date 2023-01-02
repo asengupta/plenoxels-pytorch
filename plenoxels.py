@@ -39,11 +39,11 @@ def black_rgb():
 
 
 class Empty:
-    # EMPTY_RGB = black_rgb
-    # ALL_EMPTY = torch.zeros
+    EMPTY_RGB = black_rgb
+    ALL_EMPTY = torch.zeros
 
-    EMPTY_RGB = white_rgb
-    ALL_EMPTY = torch.ones
+    # EMPTY_RGB = white_rgb
+    # ALL_EMPTY = torch.ones
 
 
 def cube_training_positions():
@@ -1202,7 +1202,7 @@ def train(world, camera_look_at, focal_length, view_spec, ray_spec, training_pos
     to_tensor = transforms.Compose([transforms.ToTensor()])
     CUBE_TRAINING_FOLDER = "./images/cube"
     TABLE_TRAINING_FOLDER = "./images/table/small-png"
-    dataset = datasets.ImageFolder(TABLE_TRAINING_FOLDER, transform=to_tensor)
+    dataset = datasets.ImageFolder(CUBE_TRAINING_FOLDER, transform=to_tensor)
     data_loader = torch.utils.data.DataLoader(dataset, batch_size=100, shuffle=False)
     training_images = list(data_loader)[0][0]
 
@@ -1216,7 +1216,7 @@ def train(world, camera_look_at, focal_length, view_spec, ray_spec, training_pos
     for epoch in range(num_epochs):
         batch_losses = []
         log.info(f"In epoch {epoch}")
-        for batch, position in enumerate(training_positions[:1]):
+        for batch, position in enumerate(training_positions):
             log.info(f"Before Training for camera position #{batch}={position}")
             test_camera = Camera(focal_length, position, camera_look_at)
             minibatch_loss, renderer, image, voxel_access = train_minibatch(model, optimizer, test_camera, view_spec,
@@ -1289,8 +1289,8 @@ def run_training(world, camera, view_spec, ray_spec):
     RECONSTRUCTED_WORLD_FILENAME = f"{OUTPUT_FOLDER}/reconstructed.pt"
     # Trains on multiple training images
     test_positions = torch.tensor([[-20., -10., 40., 1.]])
-    # training_positions = cube_training_positions()
-    training_positions = table_training_positions()
+    training_positions = cube_training_positions()
+    # training_positions = table_training_positions()
     num_epochs = 30
     reconstructed_world, epoch_losses = train(world, camera_look_at, focal_length, view_spec, ray_spec,
                                               training_positions, camera, num_epochs)
