@@ -1,6 +1,6 @@
 # plenoxels-pytorch
 
-This is a (hopefully) well-commented implementation of Plenoxels in PyTorch. The relevant paper is [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131).
+This is a (hopefully) well-commented implementation of Plenoxels in PyTorch (more comments are still being added to improve explainability). The relevant paper is [Plenoxels: Radiance Fields without Neural Networks](https://arxiv.org/abs/2112.05131).
 
 The theoretical background is explained in a series of posts below. Additionally, the incremental build-up of the code will hopefully aid in a more ground-up understanding.
 
