@@ -1291,7 +1291,7 @@ def run_training(world, camera, view_spec, ray_spec):
     test_positions = torch.tensor([[-20., -10., 40., 1.]])
     training_positions = cube_training_positions()
     # training_positions = table_training_positions()
-    num_epochs = 30
+    num_epochs = 15
     reconstructed_world, epoch_losses = train(world, camera_look_at, focal_length, view_spec, ray_spec,
                                               training_positions, camera, num_epochs)
     log.info(f"Epoch losses = {epoch_losses}")
