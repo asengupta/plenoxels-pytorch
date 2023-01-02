@@ -14,7 +14,7 @@ The theoretical background is explained in a series of posts below. Additionally
 ## Usage
 Currently, the code is set to reconstruct a cube from 13 views of it. These views are stored in ```images/cube/training```. The corresponding camera positions are in ```cube_training_positions()```. Simply running ```plenoxels.py``` will do the training, and store the reconstructed world in ```reconstructed.pt```. It will also show the reconstructed views from the original training viewpoints in the ```images/frames``` directory. The renderings during the training (which will be stochastic samples) are stored in the ```images/reconstruction``` directory.
 
-## Example Reconstruction
+## Example Reconstructions
 **Training**
 
 ![Training](videos/training-cube-scaled.gif)
@@ -23,3 +23,10 @@ Currently, the code is set to reconstruct a cube from 13 views of it. These view
 
 ![Reconstruction](videos/cube-reconstruction-correct-rendering-large.gif)
 
+**Partial Reconstruction of a Table from a Single Image**
+
+![Partial Reconstruction of a Table](videos/out-table-single-large.gif)
+
+**Training Image of a Table**
+
+![Partial Reconstruction of a Table](videos/plenoxels-table-training-single.png)
