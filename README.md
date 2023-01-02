@@ -25,8 +25,11 @@ Currently, the code is set to reconstruct a cube from 13 views of it. These view
 
 **Partial Reconstruction of a Table from a Single Image**
 
-![Partial Reconstruction of a Table](videos/out-table-single-large.gif)
+![Partial Reconstruction of a Table](videos/plenoxels-table-reconstruction-single.png)
+![Partial Reconstruction Sequence of a Table](videos/out-table-single-large.gif)
 
 **Training Image of a Table**
 
 ![Partial Reconstruction of a Table](videos/plenoxels-table-training-single.png)
+
+**Note:** The table image above is taken from the Amazon Berkeley Objects Dataset. The ABO Dataset is made available under the [**Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)**](https://creativecommons.org/licenses/by-nc/4.0/), and is available [here](https://amazon-berkeley-objects.s3.amazonaws.com/index.html).
