@@ -142,7 +142,7 @@ log.info(f"Using backend {plt.get_backend()}")
 
 GRID_X = 40
 GRID_Y = 40
-GRID_Z = 50
+GRID_Z = 40
 
 INHOMOGENEOUS_ZERO_VECTOR = torch.tensor([0., 0., 0.])
 REGULARISATION_FRACTION = 0.01
@@ -1120,8 +1120,8 @@ class PlenoxelModel(nn.Module):
         # Use self.parameter_world as the weights, take camera as input
         renderer = Renderer(self.parameter_world, camera, view_spec, ray_spec)
         num_stochastic_rays = NUM_STOCHASTIC_RAYS
-        # voxel_access = renderer.build_rays(stochastic_samples(num_stochastic_rays, view_spec))
-        voxel_access = renderer.build_rays(fullscreen_samples(view_spec))
+        voxel_access = renderer.build_rays(stochastic_samples(num_stochastic_rays, view_spec))
+        # voxel_access = renderer.build_rays(fullscreen_samples(view_spec))
         r, g, b = renderer.render_from_rays(voxel_access)
         modify_grad(self.parameter_world, voxel_access)
         return r, g, b, renderer, voxel_access
