@@ -17,9 +17,9 @@ Currently, the code is set to reconstruct a cube from 13 views of it. These view
 ## Example Reconstruction
 **Training**
 
-![Training](videos/training-cube.gif)
+![Training](videos/training-cube-scaled.gif)
 
 **Reconstruction**
 
-![Reconstruction](videos/cube-cauchy.gif)
+![Reconstruction](videos/cube-reconstruction-correct-rendering-large.gif)
 
