@@ -1,0 +1,7 @@
+**/*.iml
+**/.idea
+**/.DS_Store
+**/*pycache*
+**/pig.*
+**/*.pt
+**/output/reconstruction/*
