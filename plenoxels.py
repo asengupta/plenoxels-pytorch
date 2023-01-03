@@ -147,10 +147,10 @@ GRID_Z = 40
 INHOMOGENEOUS_ZERO_VECTOR = torch.tensor([0., 0., 0.])
 REGULARISATION_FRACTION = 0.01
 TV_REGULARISATION_LAMBDA = 0.001
-CAUCHY_REGULARISATION_LAMBDA = 0.001
-LEARNING_RATE = 0.0005
+CAUCHY_REGULARISATION_LAMBDA = 0.0001
+LEARNING_RATE = 0.01
 NUM_STOCHASTIC_RAYS = 1500
-ARBITRARY_SCALE = 5
+ARBITRARY_SCALE = 1
 
 MASTER_RAY_SAMPLE_POSITIONS_STRUCTURE = []
 MASTER_VOXELS_STRUCTURE = []
@@ -536,9 +536,9 @@ class VoxelGrid:
         summing_matrix = torch.tensor(list(
             functools.reduce(lambda acc, n: acc + [[1.] * n + [0.] * (number_of_samples - n)],
                              range(1, number_of_samples + 1),
-                             [])))
+                             []))).t()
         # print(f"Sigma-D={density_distance_products.type()}, summing matrix = {summing_matrix.t().type()}")
-        transmittances = torch.matmul(density_distance_products.double(), summing_matrix.t().double())
+        transmittances = torch.matmul(density_distance_products.double(), summing_matrix.double())
         transmittances = torch.exp(-transmittances)
 
         red_channel, green_channel, blue_channel = [], [], []
